@@ -12,3 +12,10 @@ alias .....='cd ../../../..'
 alias grep='grep --color=auto'
 alias findword='grep -rnw . -e'
 alias findall='grep -rn . -e' 
+
+# Add custom `git lol` if not already there
+if ! git config --get alias.lol >/dev/null; then
+  git config --global alias.lol "log --graph --decorate \
+    --pretty=format:'%C(yellow)%h%Creset %C(auto)%d%Creset - %s %Cgreen(%cr)%Creset %C(bold blue)<%an>%Creset' \
+    --abbrev-commit --all"
+fi
